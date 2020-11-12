@@ -1,25 +1,28 @@
-import {Ui} from  './Ui.js'
-export class Counter extends Ui{
-    value = null;
-    #element =null;
-    init(){
-      this.#element = this.getElement(this.UiSelectors.counter)
-    }
-    setValue(value){
-        this.value = value;
-        this.#updateValue();
-    }
-    increment(){
-        this.value++;
-        this.#updateValue();
+import { UI } from './UI.js';
 
-    }
-    decrement(){
-        this.value--;
-        this.#updateValue();
+export class Counter extends UI {
+  value = null;
+  #element = null;
 
-    }
-    #updateValue(){
-        this.#element.textContent = this.value;
-    }
+  init() {
+    this.#element = this.getElement(this.UiSelectors.counter);
+  }
+
+  setValue(value) {
+    this.value = value;
+    this.#updateValue();
+  }
+
+  increment() {
+    this.value++;
+    this.#updateValue();
+  }
+  decrement() {
+    this.value--;
+    this.#updateValue();
+  }
+
+  #updateValue() {
+    this.#element.textContent = this.value;
+  }
 }
